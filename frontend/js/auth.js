@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const backend_url = process.env.BACKEND_URL;
     if (document.getElementById('login-form')) {
         document.getElementById('login-form').addEventListener('submit', loginUser);
     }
