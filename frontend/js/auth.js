@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        fetch('http://localhost:3000/api/auth/login', {
+        fetch('https://notes-backend-7rvv.onrender.com/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        fetch('http://localhost:3000/api/auth/register', {
+        fetch('https://notes-backend-7rvv.onrender.com/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

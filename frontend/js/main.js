@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const tags = document.getElementById('note-tags').value.split(',').map(tag => tag.trim());
         const backgroundColor = document.getElementById('note-color').value;
 
-        fetch('http://localhost:3000/api/notes', {
+        fetch('https://notes-backend-7rvv.onrender.com/api/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function archiveNote(noteId) {
-        fetch(`http://localhost:3000/api/notes/${noteId}`, {
+        fetch(`https://notes-backend-7rvv.onrender.com/api/notes/${noteId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function deleteNote(noteId) {
-        fetch(`http://localhost:3000/api/notes/${noteId}`, {
+        fetch(`https://notes-backend-7rvv.onrender.com/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadNotes() {
-        fetch('http://localhost:3000/api/notes', {
+        fetch('https://notes-backend-7rvv.onrender.com/api/notes', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
