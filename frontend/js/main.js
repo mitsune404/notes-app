@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('token');
-    const backend_url = process.env.BACKEND_URL;
 
     if (!token) {
         window.location.href = 'login.html';
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const tags = document.getElementById('note-tags').value.split(',').map(tag => tag.trim());
         const backgroundColor = document.getElementById('note-color').value;
 
-        fetch('${backend_url}/api/notes', {
+        fetch('https://notes-backend-7rvv.onrender.com/api/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function archiveNote(noteId) {
-        fetch(`${backend_url}/api/notes/${noteId}`, {
+        fetch(`https://notes-backend-7rvv.onrender.com/api/notes/${noteId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function deleteNote(noteId) {
-        fetch(`${backend_url}/api/notes/${noteId}`, {
+        fetch(`https://notes-backend-7rvv.onrender.com/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadNotes() {
-        fetch('${backend_url}/api/notes', {
+        fetch('https://notes-backend-7rvv.onrender.com/api/notes', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
