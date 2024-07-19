@@ -8,7 +8,7 @@ const noteRoutes = require('./routes/noteRoutes');
 
 const app = express();
 app.use(cors({
-    origin: 'http://127.0.0.1:5500' // Allow requests from this origin
+    origin: true
 }));
 mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true });
 
