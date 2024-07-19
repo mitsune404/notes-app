@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('token');
+    const backend_url = process.env.BACKEND_URL;
+
     if (!token) {
         window.location.href = 'login.html';
     }
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const tags = document.getElementById('note-tags').value.split(',').map(tag => tag.trim());
         const backgroundColor = document.getElementById('note-color').value;
 
-        fetch('${process.env.BACKEND_URL}/api/notes', {
+        fetch('${backend_url}/api/notes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -54,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function archiveNote(noteId) {
-        fetch(`${process.env.BACKEND_URL}/api/notes/${noteId}`, {
+        fetch(`${backend_url}/api/notes/${noteId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function deleteNote(noteId) {
-        fetch(`${process.env.BACKEND_URL}/api/notes/${noteId}`, {
+        fetch(`${backend_url}/api/notes/${noteId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadNotes() {
-        fetch('${process.env.BACKEND_URL}/api/notes', {
+        fetch('${backend_url}/api/notes', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

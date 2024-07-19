@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const backend_url = process.env.BACKEND_URL;
     if (document.getElementById('login-form')) {
         document.getElementById('login-form').addEventListener('submit', loginUser);
     }
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        fetch('${process.env.BACKEND_URL}/api/auth/login', {
+        fetch('${backend_url}/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        fetch('${process.env.BACKEND_URL}/api/auth/register', {
+        fetch('${backend_url}/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
